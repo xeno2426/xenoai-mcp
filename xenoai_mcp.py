@@ -283,4 +283,4 @@ async def xenoai_status() -> str:
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 8001))
     print(f"🤖 XenoAI MCP Server → http://0.0.0.0:{port}")
-    mcp.run(transport="streamable-http", port=port)
+    mcp.run(transport="streamable_http", port=port)
