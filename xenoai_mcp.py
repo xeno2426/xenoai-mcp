@@ -281,6 +281,8 @@ async def xenoai_status() -> str:
 # ── Entry Point ───────────────────────────────────────────────────────────────
 
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 8001))
+    import uvicorn
+    port = int(os.environ.get("PORT", 8080))
     print(f"🤖 XenoAI MCP Server → http://0.0.0.0:{port}")
-    mcp.run(transport="streamable_http", port=port)
+    app = mcp.streamable_http_app()
+    uvicorn.run(app, host="0.0.0.0", port=port)
